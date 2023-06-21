@@ -6,6 +6,10 @@ public class Paciente {
 	private String nombre;
 	private String apellido;
 	
+	public Paciente() {
+		
+	}
+	
 	public Paciente(String dni, String nombre, String apellido) {
 		super();
 		this.dni = dni;

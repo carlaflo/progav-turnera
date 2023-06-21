@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.turnos.dao.PacienteDAO;
-
-import com.turnos.model.DAOConnectionException;
-import com.turnos.model.DAOSentenceException;
+import com.turnos.excepciones.DAOConnectionException;
+import com.turnos.excepciones.DAOSentenceException;
 import com.turnos.model.Paciente;
 import com.turnos.model.Patologia;
 

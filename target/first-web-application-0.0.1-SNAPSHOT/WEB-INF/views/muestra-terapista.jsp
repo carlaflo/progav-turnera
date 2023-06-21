@@ -4,41 +4,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Todos for ${name}</title>
+<title>Terapista</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
 </head>
 <body>
+	<nav role="navigation" class="navbar navbar-default">
+
+		<div class="navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/terapistas">Ver terapistas</a></li>
+				<li><a href="/pacientes">Ver pacientes</a></li>
+				<li><a href="/add-paciente">Agregar Paciente</a></li>
+				<li><a href="/pacientes">Reservar turno</a></li>
+
+			</ul>
+		</div>
+	</nav>
 	<div class="container">
-		<H1>Your Todos</H1>
+		<H1>Terapista</H1>
+
 		<div>
 			<table class="table table-striped">
-				<caption>Your Todos are</caption>
 
 				<thead>
 					<tr>
-						<th>Description</th>
-						<th>Date</th>
-						<th>Completed</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Legajo</th>
 						<th></th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<c:forEach items="${todos}" var="todo">
-						<tr>
-							<td>${todo.desc}</td>
-							<td>${todo.targetDate}</td>
-							<td>${todo.done}</td>
-							<td><a href="/delete-todo?id=${todo.id}"class="btn btn-danger">Delete</a> </td>
-						</tr>
-					</c:forEach>
+					<c:set var="terap" scope="session" value="${terapista}" />
+					<tr>
+						<td>${terap.nombre}</td>
+						<td>${terap.apellido}</td>
+						<td>${terap.legajo}</td>
+
+					</tr>
+
 				</tbody>
 			</table>
 		</div>
-		<div>
-		<a class="btn btn-success" href="/add-todo">Add</a>
-		</div>
+
 		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 		<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</div>

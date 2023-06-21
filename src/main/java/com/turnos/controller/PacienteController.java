@@ -14,6 +14,7 @@ import com.turnos.model.Patologia;
 import com.turnos.service.PacientesService;
 import com.turnos.service.PatologiasService;
 import com.turnos.service.TurnosService;
+import com.turnos.service.UsuarioService;
 
 
 //VISTA
@@ -28,12 +29,14 @@ public class PacienteController {
 	PatologiasService patService;
 	@Autowired
 	TurnosService turnoService;
+	@Autowired
+	UsuarioService usuarioService;
 	
 	@RequestMapping(value = "/pacientes/{dni}", method= RequestMethod.GET)
-	public String getPaciente(@PathVariable("dni") String dni, ModelMap model) {
+	public String getPaciente(@PathVariable("dni") String dni, ModelMap model/*, RedirectAttributes redirectAttrs*/) {
 		model.addAttribute("paciente",service.getPaciente(dni));
-		
-		model.addAttribute("turnos",turnoService.getTurnosByPaciente(dni));
+		System.out.println("ERROR: "+model.get("errorMessage"));
+		model.addAttribute("turnos",turnoService.getTurnosActivosByPaciente(dni));
 		
 		return "muestra-paciente"; //returns login view
 	}
@@ -51,15 +54,18 @@ public class PacienteController {
 	}
 	
 	@RequestMapping(value = "/add-paciente", method= RequestMethod.POST)
-	public String addPaciente(ModelMap model,@RequestParam String dni,
-			@RequestParam String nombre,@RequestParam String apellido, @RequestParam String patologia) {
-		System.out.println(nombre+"-"+apellido+"-"+dni);
-		
-		System.out.println("EL ID DE LA PATOLOGIA ES: "+patologia);
+	public String addPaciente(ModelMap model,
+			@RequestParam String dni,
+			@RequestParam String nombre,
+			@RequestParam String apellido, 
+			@RequestParam String patologia,
+			@RequestParam String password) {
 		
 		Paciente p = new Paciente(dni,nombre,apellido);
 		Patologia pat = new Patologia(Integer.valueOf(patologia).intValue(),null);
+		
 		service.insertPaciente(p,pat);
+		usuarioService.insertarUser(dni, password, "ACTIVO");
 		model.clear();
 		return "redirect:pacientes";//redireccionar a sacar turno. 
 	}

@@ -2,8 +2,8 @@ package com.turnos.dao;
 
 import java.util.List;
 
-import com.turnos.model.DAOConnectionException;
-import com.turnos.model.DAOSentenceException;
+import com.turnos.excepciones.DAOConnectionException;
+import com.turnos.excepciones.DAOSentenceException;
 import com.turnos.model.Paciente;
 import com.turnos.model.Patologia;
 

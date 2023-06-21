@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 
-import com.turnos.model.DAOConnectionException;
+import com.turnos.excepciones.DAOConnectionException;
 import com.turnos.model.Patologia;
 
 @Controller

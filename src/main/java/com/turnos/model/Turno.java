@@ -15,18 +15,19 @@ public class Turno {
 	private String estado;
 	//private Visita visita;
 	private Terapista t;
+	private String fechaOperacion;
 	
 	
 	
-	public Turno(int id, String fecha, String hora, String dni, String legajo, String estado) {
+	public Turno(int id, String fecha, String hora, String dni, String legajo, String estado, String fechaOperacion) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
 		this.hora = hora;
-		
 		this.dni = dni;
 		this.legajo = legajo;
 		this.estado = estado;
+		this.fechaOperacion = fechaOperacion;
 	}
 	
 	public String getFecha() {
@@ -76,6 +77,14 @@ public class Turno {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getFechaOperacion() {
+		return fechaOperacion;
+	}
+
+	public void setFechaOperacion(String fechaOperacion) {
+		this.fechaOperacion = fechaOperacion;
 	}
 	
 	
