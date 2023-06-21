@@ -16,10 +16,11 @@
 
 		<div class="navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/terapistas">Ver terapistas</a></li>
+				<li ><a href="/terapistas">Ver terapistas</a></li>
 				<li><a href="/pacientes">Ver pacientes</a></li>
 				<li><a href="/add-paciente">Agregar Paciente</a></li>
-				<li><a href="/pacientes">Reservar turno</a></li>
+				<li><a href="/pacientes">Reservar Turno</a></li>
+				
 
 			</ul>
 		</div>
@@ -37,6 +38,7 @@
 						<th>DNI</th>
 						<th>Ver turnos</th>
 						<th>Reservar turno</th>
+						<th>Ver historial</th>
 					</tr>
 				</thead>
 
@@ -56,6 +58,12 @@
 								<form action="/pacientes/${pac.dni}/turnos" method="get">
 									<button type="submit" name="Reservar" value="Reservar"
 										class="btn-link">Reservar turno</button>
+								</form>
+							</td>
+							<td>
+								<form action="/paciente/${pac.dni}/turnos-historico" method="get">
+									<button type="submit" name="verhistorico" value="verHistorico"
+										class="btn-link">Ver historial</button>
 								</form>
 							</td>
 						</tr>

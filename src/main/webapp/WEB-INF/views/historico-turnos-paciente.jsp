@@ -103,7 +103,7 @@
 		</div>
  	
  
-	<a href="/excelExport/${dni}" class="btn btn-success">Export data into Excel </a> 
+	<a href="/excelExport/${dni}" class="btn btn-success">Exportar a Excel </a> 
 
  	
  	
